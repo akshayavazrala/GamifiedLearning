@@ -1762,6 +1762,204 @@
         }
     }
 
+    /* Syllabus Chatbot Styles */
+    .syllabus-chatbot-container {
+        position: fixed;
+        bottom: 90px;
+        right: 20px;
+        z-index: 1000;
+    }
+
+    .syllabus-chatbot-toggle {
+        width: 60px;
+        height: 60px;
+        background: linear-gradient(135deg, #38b2ac 0%, #0e7490 100%);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 1.5rem;
+        cursor: pointer;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease;
+    }
+
+    .syllabus-chatbot-toggle:hover {
+        transform: scale(1.1);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .syllabus-chatbot-window {
+        position: absolute;
+        bottom: 70px;
+        right: 0;
+        width: 400px;
+        height: 550px;
+        background: white;
+        border-radius: 15px;
+        box-shadow: 0 5px 25px rgba(0, 0, 0, 0.15);
+        display: none;
+        flex-direction: column;
+        overflow: hidden;
+        border: 1px solid #e2e8f0;
+    }
+
+    .syllabus-chatbot-window.active {
+        display: flex;
+    }
+
+    .syllabus-chatbot-header {
+        background: linear-gradient(135deg, #38b2ac 0%, #0e7490 100%);
+        color: white;
+        padding: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .syllabus-chatbot-header h3 {
+        margin: 0;
+        font-size: 1.1rem;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .syllabus-chatbot-header h3 i {
+        font-size: 1.2rem;
+    }
+
+    .syllabus-chatbot-close {
+        background: none;
+        border: none;
+        color: white;
+        font-size: 1.2rem;
+        cursor: pointer;
+    }
+
+    .subject-selector {
+        padding: 20px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+        flex: 1;
+        overflow-y: auto;
+    }
+
+    .subject-card-selector {
+        background: white;
+        border-radius: 12px;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        border: 2px solid #e2e8f0;
+        text-align: center;
+    }
+
+    .subject-card-selector:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        border-color: #38b2ac;
+    }
+
+    .subject-card-selector.selected {
+        border-color: #38b2ac;
+        background: #f0f9ff;
+    }
+
+    .subject-card-selector i {
+        font-size: 2rem;
+        margin-bottom: 10px;
+        color: #38b2ac;
+    }
+
+    .subject-card-selector h4 {
+        margin: 0;
+        color: #1a365d;
+        font-size: 1rem;
+    }
+
+    .subject-card-selector p {
+        margin: 5px 0 0;
+        color: #64748b;
+        font-size: 0.8rem;
+    }
+
+    .syllabus-chatbot-messages {
+        flex: 1;
+        padding: 15px;
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        max-height: 320px;
+    }
+
+    .syllabus-chatbot-input-container {
+        padding: 15px;
+        border-top: 1px solid #e0e0e0;
+        display: flex;
+        gap: 10px;
+        align-items: center;
+    }
+
+    .syllabus-chatbot-input {
+        flex: 1;
+        padding: 10px 15px;
+        border: 1px solid #d0d0d0;
+        border-radius: 20px;
+        outline: none;
+        font-size: 0.9rem;
+    }
+
+    .syllabus-chatbot-input:focus {
+        border-color: #38b2ac;
+    }
+
+    .syllabus-chatbot-send {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #38b2ac 0%, #0e7490 100%);
+        border: none;
+        color: white;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .syllabus-suggested-questions {
+        padding: 10px 15px;
+        border-top: 1px solid #e0e0e0;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        max-height: 100px;
+        overflow-y: auto;
+    }
+
+    .syllabus-suggested-question {
+        background: #f0f9ff;
+        border: none;
+        border-radius: 15px;
+        padding: 8px 12px;
+        font-size: 0.8rem;
+        text-align: left;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        border: 1px solid #bae6fd;
+    }
+
+    .syllabus-suggested-question:hover {
+        background: #e0f2fe;
+    }
+
     /* Responsive adjustments */
     @media (max-width: 1024px) {
         .profile-container-main {
@@ -1813,7 +2011,8 @@
             align-items: flex-start;
         }
         
-        .chatbot-window {
+        .chatbot-window,
+        .syllabus-chatbot-window {
             width: 300px;
             height: 450px;
             right: -50px;
@@ -1838,6 +2037,10 @@
         .chatbot-send {
             position: static;
             order: 3;
+        }
+        
+        .subject-selector {
+            grid-template-columns: 1fr;
         }
     }
 </style>
@@ -2221,7 +2424,41 @@
         </div>
     </div>
 
-    <!-- Chatbot -->
+    <!-- Syllabus-Based Chatbot (NEW) -->
+    <div class="syllabus-chatbot-container">
+        <div class="syllabus-chatbot-toggle" id="syllabusChatbotToggle">
+            <i class="fas fa-book"></i>
+        </div>
+        <div class="syllabus-chatbot-window" id="syllabusChatbotWindow">
+            <div class="syllabus-chatbot-header">
+                <h3><i class="fas fa-book-open"></i> Syllabus Assistant</h3>
+                <button class="syllabus-chatbot-close" id="syllabusChatbotClose">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="subject-selector" id="subjectSelector">
+                <!-- Subject cards will be loaded here -->
+            </div>
+            
+            <div class="syllabus-chatbot-messages" id="syllabusChatbotMessages" style="display: none;">
+                <!-- Chat messages will appear here -->
+            </div>
+            
+            <div class="syllabus-chatbot-input-container" id="syllabusChatbotInputContainer" style="display: none;">
+                <input type="text" class="syllabus-chatbot-input" id="syllabusChatbotInput" placeholder="Ask about your syllabus...">
+                <button class="syllabus-chatbot-send" id="syllabusChatbotSend">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+            
+            <div class="syllabus-suggested-questions" id="syllabusSuggestedQuestions" style="display: none;">
+                <!-- Suggested questions will appear here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- AI Chatbot (Existing) -->
     <div class="chatbot-container">
         <div class="chatbot-toggle" id="chatbotToggle">
             <i class="fas fa-robot"></i>
@@ -2259,26 +2496,23 @@
                 <input type="text" class="chatbot-input" id="chatbotInput" placeholder="Type or speak in Odia...">
                 
                 <!-- Voice Control Buttons -->
-                <!-- Updated Voice Controls -->
-<!-- Updated Voice Controls -->
-<!-- Updated Voice Controls -->
-<div class="voice-controls">
-    <button class="chatbot-btn voice-record" id="startRecord" title="Start Recording">
-        <i class="fas fa-microphone"></i>
-    </button>
-    <button class="chatbot-btn voice-stop" id="stopRecord" title="Stop Recording" disabled>
-        <i class="fas fa-stop"></i>
-    </button>
-    <button class="chatbot-btn voice-play" id="playOdia" title="Play in Odia">
-        <i class="fas fa-volume-up"></i>
-    </button>
-    <button class="chatbot-btn voice-pause" id="pauseSpeaking" title="Pause Speech" disabled style="display: none;">
-        <i class="fas fa-pause"></i>
-    </button>
-    <button class="chatbot-btn voice-stop-speaking" id="stopSpeaking" title="Stop Speaking" disabled style="display: none;">
-        <i class="fas fa-stop-circle"></i>
-    </button>
-</div>
+                <div class="voice-controls">
+                    <button class="chatbot-btn voice-record" id="startRecord" title="Start Recording">
+                        <i class="fas fa-microphone"></i>
+                    </button>
+                    <button class="chatbot-btn voice-stop" id="stopRecord" title="Stop Recording" disabled>
+                        <i class="fas fa-stop"></i>
+                    </button>
+                    <button class="chatbot-btn voice-play" id="playOdia" title="Play in Odia">
+                        <i class="fas fa-volume-up"></i>
+                    </button>
+                    <button class="chatbot-btn voice-pause" id="pauseSpeaking" title="Pause Speech" disabled style="display: none;">
+                        <i class="fas fa-pause"></i>
+                    </button>
+                    <button class="chatbot-btn voice-stop-speaking" id="stopSpeaking" title="Stop Speaking" disabled style="display: none;">
+                        <i class="fas fa-stop-circle"></i>
+                    </button>
+                </div>
                 
                 <button class="chatbot-send" id="chatbotSend">
                     <i class="fas fa-paper-plane"></i>
@@ -2292,6 +2526,8 @@
         let currentUser = null;
         let currentQuizAttempt = null;
         let quizTimerInterval = null;
+        let selectedSubject = null;
+        let syllabusKnowledgeBase = {};
 
         // Initialize application
         document.addEventListener('DOMContentLoaded', function() {
@@ -2312,6 +2548,8 @@
             generateActivityCalendar();
             setupEventListeners();
             setupChatbotWithVoice();
+            setupSyllabusChatbot(); // Initialize syllabus chatbot
+            loadSyllabusKnowledgeBase(); // Load syllabus data
         });
 
         // Load user data
@@ -3532,809 +3770,1211 @@
             }
         }
 
-        // M// Updated OdiaVoiceAssistant class with better language detection
-class OdiaVoiceAssistant {
-    constructor() {
-        this.recognition = null;
-        this.isRecording = false;
-        this.speechSynthesis = window.speechSynthesis;
-        this.speechUtterance = null;
-        this.isSpeaking = false;
-        this.isPaused = false;
-        this.pausedTime = 0;
-        this.pauseStartTime = 0;
-        this.init();
-    }
-    
-    init() {
-        // Check browser support
-        if ('webkitSpeechRecognition' in window) {
-            this.initSpeechRecognition();
-            return true;
-        } else if ('SpeechRecognition' in window) {
-            this.recognition = new SpeechRecognition();
-            this.initSpeechRecognition();
-            return true;
-        }
-        return false;
-    }
-    
-    initSpeechRecognition() {
-        this.recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
-        this.recognition.continuous = false;
-        this.recognition.interimResults = true;
-        this.recognition.lang = 'or-IN'; // Odia language code
-        
-        this.recognition.onstart = () => {
-            console.log('Odia speech recognition started');
-            this.isRecording = true;
-            this.onListeningStart();
-        };
-        
-        this.recognition.onresult = (event) => {
-            let interimTranscript = '';
-            let finalTranscript = '';
-            
-            for (let i = event.resultIndex; i < event.results.length; i++) {
-                const transcript = event.results[i][0].transcript;
-                if (event.results[i].isFinal) {
-                    finalTranscript += transcript;
-                } else {
-                    interimTranscript += transcript;
-                }
-            }
-            
-            // Update UI with interim results
-            if (interimTranscript) {
-                this.onInterimTranscript(interimTranscript);
-            }
-            
-            // Handle final result
-            if (finalTranscript) {
-                this.onFinalTranscript(finalTranscript);
-            }
-        };
-        
-        this.recognition.onerror = (event) => {
-            console.error('Speech recognition error:', event.error);
-            this.onError(event.error);
-        };
-        
-        this.recognition.onend = () => {
-            console.log('Speech recognition ended');
-            this.isRecording = false;
-            this.onListeningEnd();
-        };
-    }
-    
-    startRecording() {
-        if (this.recognition && !this.isRecording) {
-            try {
-                this.recognition.start();
-            } catch (error) {
-                console.error('Error starting recording:', error);
-                this.onError('start-failed');
-            }
-        }
-    }
-    
-    stopRecording() {
-        if (this.recognition && this.isRecording) {
-            this.recognition.stop();
-        }
-    }
-    
-    // Enhanced speakOdia function with pause support
-    speakOdia(text) {
-        if (this.speechSynthesis.speaking && !this.isPaused) {
-            this.stopSpeaking();
-        }
-        
-        this.speechUtterance = new SpeechSynthesisUtterance(text);
-        
-        // Try to set Odia voice if available
-        const voices = this.speechSynthesis.getVoices();
-        const odiaVoice = voices.find(voice => 
-            voice.lang.startsWith('or') || // Odia
-            voice.lang.startsWith('hi') || // Hindi (closest)
-            voice.lang.startsWith('bn')    // Bengali (similar)
-        );
-        
-        if (odiaVoice) {
-            this.speechUtterance.voice = odiaVoice;
-            this.speechUtterance.lang = odiaVoice.lang;
-        } else {
-            // Fallback to default voice
-            this.speechUtterance.lang = 'or-IN';
-        }
-        
-        this.speechUtterance.rate = 0.9; // Slightly slower for clarity
-        this.speechUtterance.pitch = 1;
-        this.speechUtterance.volume = 1;
-        
-        this.speechUtterance.onstart = () => {
-            this.isSpeaking = true;
-            this.isPaused = false;
-            this.onSpeakingStart();
-        };
-        
-        this.speechUtterance.onend = () => {
-            this.isSpeaking = false;
-            this.isPaused = false;
-            this.onSpeakingEnd();
-        };
-        
-        this.speechUtterance.onerror = (event) => {
-            console.error('Speech synthesis error:', event);
-            this.isSpeaking = false;
-            this.isPaused = false;
-            this.onSpeakingEnd();
-        };
-        
-        this.speechUtterance.onpause = () => {
-            this.isPaused = true;
-            this.pauseStartTime = Date.now();
-            this.onSpeakingPaused();
-        };
-        
-        this.speechUtterance.onresume = () => {
-            if (this.isPaused) {
-                this.pausedTime += Date.now() - this.pauseStartTime;
-                this.isPaused = false;
-            }
-            this.onSpeakingResumed();
-        };
-        
-        this.speechSynthesis.speak(this.speechUtterance);
-    }
-    
-    // Pause speech
-    pauseSpeaking() {
-        if (this.speechSynthesis.speaking && !this.isPaused) {
-            this.speechSynthesis.pause();
-            this.isPaused = true;
-            this.pauseStartTime = Date.now();
-            this.onSpeakingPaused();
-        }
-    }
-    
-    // Resume speech
-    resumeSpeaking() {
-        if (this.speechSynthesis.paused) {
-            this.speechSynthesis.resume();
-            this.isPaused = false;
-            if (this.pauseStartTime) {
-                this.pausedTime += Date.now() - this.pauseStartTime;
-                this.pauseStartTime = 0;
-            }
-            this.onSpeakingResumed();
-        }
-    }
-    
-    // Toggle pause/resume
-    togglePauseSpeaking() {
-        if (this.isPaused) {
-            this.resumeSpeaking();
-        } else {
-            this.pauseSpeaking();
-        }
-    }
-    
-    // Stop speech completely
-    stopSpeaking() {
-        if (this.speechSynthesis.speaking || this.isPaused) {
-            this.speechSynthesis.cancel();
-            this.isSpeaking = false;
-            this.isPaused = false;
-            this.pausedTime = 0;
-            this.pauseStartTime = 0;
-            this.onSpeakingEnd();
-        }
-    }
-    
-    // Event handlers for voice recognition
-    onListeningStart() {
-        if (document.getElementById('startRecord')) {
-            document.getElementById('startRecord').classList.add('recording');
-        }
-        if (document.getElementById('stopRecord')) {
-            document.getElementById('stopRecord').disabled = false;
-        }
-        if (document.getElementById('statusText')) {
-            document.getElementById('statusText').textContent = 'Listening... Speak in Odia';
-        }
-        if (document.getElementById('voiceStatus')) {
-            document.getElementById('voiceStatus').style.display = 'flex';
-        }
-        this.updateVisualizer(true);
-    }
-    
-    onInterimTranscript(text) {
-        if (document.getElementById('chatbotInput')) {
-            document.getElementById('chatbotInput').value = text;
-        }
-        if (document.getElementById('statusText')) {
-            document.getElementById('statusText').textContent = 'Recognizing: ' + text.substring(0, 30) + '...';
-        }
-    }
-    
-    onFinalTranscript(text) {
-        console.log('Final Odia text:', text);
-        if (document.getElementById('chatbotInput')) {
-            document.getElementById('chatbotInput').value = text;
-        }
-        if (document.getElementById('statusText')) {
-            document.getElementById('statusText').textContent = 'Recognized: ' + text;
-        }
-        
-        // Auto-submit if text is long enough
-        if (text.trim().length > 3) {
-            setTimeout(() => {
-                if (document.getElementById('chatbotSend')) {
-                    document.getElementById('chatbotSend').click();
-                }
-            }, 1000);
-        }
-    }
-    
-    onError(error) {
-        let errorMsg = 'Voice recognition error: ';
-        switch(error) {
-            case 'no-speech':
-                errorMsg = 'No speech detected. Please speak louder.';
-                break;
-            case 'audio-capture':
-                errorMsg = 'No microphone found. Please check your microphone.';
-                break;
-            case 'not-allowed':
-                errorMsg = 'Microphone access denied. Please allow microphone access.';
-                break;
-            case 'start-failed':
-                errorMsg = 'Unable to start recording. Please refresh the page.';
-                break;
-            default:
-                errorMsg = 'Error: ' + error;
-        }
-        
-        if (document.getElementById('statusText')) {
-            document.getElementById('statusText').textContent = errorMsg;
-        }
-        if (document.getElementById('startRecord')) {
-            document.getElementById('startRecord').classList.remove('recording');
-        }
-        if (document.getElementById('stopRecord')) {
-            document.getElementById('stopRecord').disabled = true;
-        }
-        
-        // Hide status after 3 seconds
-        setTimeout(() => {
-            if (document.getElementById('voiceStatus') && !this.isRecording) {
-                document.getElementById('voiceStatus').style.display = 'none';
-            }
-        }, 3000);
-    }
-    
-    onListeningEnd() {
-        if (document.getElementById('startRecord')) {
-            document.getElementById('startRecord').classList.remove('recording');
-        }
-        if (document.getElementById('stopRecord')) {
-            document.getElementById('stopRecord').disabled = true;
-        }
-        if (document.getElementById('statusText')) {
-            document.getElementById('statusText').textContent = 'Ready to record Odia';
-        }
-        this.updateVisualizer(false);
-        
-        // Hide status after 3 seconds
-        setTimeout(() => {
-            if (document.getElementById('voiceStatus') && !this.isRecording) {
-                document.getElementById('voiceStatus').style.display = 'none';
-            }
-        }, 3000);
-    }
-    
-    // New event handlers for pause/resume
-    onSpeakingPaused() {
-        const pauseBtn = document.getElementById('pauseSpeaking');
-        if (pauseBtn) {
-            pauseBtn.innerHTML = '<i class="fas fa-play"></i>';
-            pauseBtn.title = 'Resume Speech';
-            pauseBtn.classList.add('paused');
-        }
-        if (document.getElementById('statusText')) {
-            document.getElementById('statusText').textContent = 'Speech paused';
-        }
-    }
-    
-    onSpeakingResumed() {
-        const pauseBtn = document.getElementById('pauseSpeaking');
-        if (pauseBtn) {
-            pauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
-            pauseBtn.title = 'Pause Speech';
-            pauseBtn.classList.remove('paused');
-        }
-        if (document.getElementById('statusText')) {
-            document.getElementById('statusText').textContent = 'Speaking...';
-        }
-    }
-    
-    onSpeakingStart() {
-        const playBtn = document.getElementById('playOdia');
-        const pauseBtn = document.getElementById('pauseSpeaking');
-        const stopBtn = document.getElementById('stopSpeaking');
-        const statusText = document.getElementById('statusText');
-        const voiceStatus = document.getElementById('voiceStatus');
-        
-        if (playBtn) playBtn.style.display = 'none';
-        if (pauseBtn) {
-            pauseBtn.style.display = 'block';
-            pauseBtn.disabled = false;
-            pauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
-            pauseBtn.title = 'Pause Speech';
-            pauseBtn.classList.remove('paused');
-        }
-        if (stopBtn) {
-            stopBtn.style.display = 'block';
-            stopBtn.disabled = false;
-        }
-        if (statusText) {
-            statusText.textContent = 'Speaking...';
-        }
-        if (voiceStatus) {
-            voiceStatus.style.display = 'flex';
-        }
-    }
-    
-    onSpeakingEnd() {
-        const playBtn = document.getElementById('playOdia');
-        const pauseBtn = document.getElementById('pauseSpeaking');
-        const stopBtn = document.getElementById('stopSpeaking');
-        const statusText = document.getElementById('statusText');
-        
-        if (playBtn) playBtn.style.display = 'block';
-        if (pauseBtn) {
-            pauseBtn.style.display = 'none';
-            pauseBtn.disabled = true;
-            pauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
-            pauseBtn.classList.remove('paused');
-            pauseBtn.title = 'Pause Speech';
-        }
-        if (stopBtn) {
-            stopBtn.style.display = 'none';
-            stopBtn.disabled = true;
-        }
-        if (statusText) {
-            statusText.textContent = 'Voice playback finished';
-        }
-        
-        // Hide status after 2 seconds
-        setTimeout(() => {
-            if (!this.isSpeaking && !this.isPaused && document.getElementById('voiceStatus')) {
-                document.getElementById('voiceStatus').style.display = 'none';
-            }
-        }, 2000);
-    }
-    
-    updateVisualizer(isActive) {
-        const visualizer = document.getElementById('visualizer');
-        if (!visualizer) return;
-        
-        visualizer.innerHTML = '';
-        
-        if (isActive) {
-            const bar = document.createElement('div');
-            bar.className = 'visualizer-bar';
-            visualizer.appendChild(bar);
-            this.animateVisualizer(bar);
-        }
-    }
-    
-    animateVisualizer(bar) {
-        const animate = () => {
-            if (this.isRecording && bar && bar.parentNode) {
-                const width = 20 + Math.random() * 80;
-                bar.style.width = width + '%';
-                requestAnimationFrame(() => this.animateVisualizer(bar));
-            }
-        };
-        animate();
-    }
-}
-
-// Updated Offline Odia-English Dictionary with more terms
-const odiaSTEMDictionary = {
-    // Mathematics
-    'ଯୋଗ': 'addition',
-    'ବିୟୋଗ': 'subtraction',
-    'ଗୁଣନ': 'multiplication',
-    'ଭାଗ': 'division',
-    'ଭଗ୍ନାଂଶ': 'fraction',
-    'ଦଶମିକ': 'decimal',
-    'ବର୍ଗମୂଳ': 'square root',
-    'ସମୀକରଣ': 'equation',
-    'ତ୍ରିଭୁଜ': 'triangle',
-    'ବୃତ୍ତ': 'circle',
-    'ଦଶମିକ': 'decimal',
-    'କପାନ୍ନ': 'calculation',
-    'କାପନ୍ନ': 'calculation',
-    'କାପାନ୍ନ': 'calculation',
-    'ଗଣନା': 'calculation',
-    'ଆକଳନ': 'calculation',
-    
-    // Science
-    'ଜୀବନ': 'life',
-    'ଉଦ୍ଭିଦ': 'plant',
-    'ପ୍ରାଣୀ': 'animal',
-    'ଜଳ': 'water',
-    'ବାୟୁ': 'air',
-    'ଆଲୋକ': 'light',
-    'ତାପ': 'heat',
-    'ଶକ୍ତି': 'energy',
-    'ପରମାଣୁ': 'atom',
-    'ଅଣୁ': 'molecule',
-    'ଜୈବିକ': 'biological',
-    'ପ୍ରଣାଳୀ': 'system',
-    
-    // Common words
-    'ସହାୟତା': 'help',
-    'ବୁଝାଅ': 'explain',
-    'କଣ': 'what',
-    'କାହିଁକି': 'why',
-    'କେମିତି': 'how',
-    'କାହାକୁ': 'to whom',
-    'ପ୍ରଶ୍ନ': 'question',
-    'ଉତ୍ତର': 'answer',
-    'ବିଷୟ': 'subject',
-    'ପାଠ୍ୟ': 'lesson'
-};
-
-// Function to detect if text contains Odia characters
-function containsOdia(text) {
-    const odiaRange = /[\u0B00-\u0B7F]/;
-    return odiaRange.test(text);
-}
-
-// Function to extract Odia words and translate them
-function translateOdiaToEnglish(text) {
-    if (!containsOdia(text)) {
-        return text; // Return as-is if no Odia detected
-    }
-    
-    let translatedText = text;
-    
-    // First, translate known Odia words
-    Object.keys(odiaSTEMDictionary).forEach(odiaWord => {
-        const regex = new RegExp(odiaWord, 'g');
-        if (regex.test(text)) {
-            translatedText = translatedText.replace(regex, odiaSTEMDictionary[odiaWord]);
-        }
-    });
-    
-    // If we detected Odia but didn't translate much, add context
-    if (containsOdia(translatedText) && translatedText === text) {
-        // Keep the Odia text but add English context
-        return "Odia question: " + text + " (Please explain in simple terms)";
-    }
-    
-    return translatedText;
-}
-
-// Integration with Chatbot - UPDATED VERSION
-function setupChatbotWithVoice() {
-    // Initialize voice assistant
-    const voiceAssistant = new OdiaVoiceAssistant();
-    
-    // Check browser support
-    if (!voiceAssistant.recognition) {
-        console.log('Speech recognition not supported in this browser');
-        // Hide voice controls if not supported
-        document.querySelector('.voice-controls').style.display = 'none';
-    }
-    
-    // Button event listeners
-    document.getElementById('startRecord').addEventListener('click', () => {
-        voiceAssistant.startRecording();
-    });
-    
-    document.getElementById('stopRecord').addEventListener('click', () => {
-        voiceAssistant.stopRecording();
-    });
-    
-    document.getElementById('playOdia').addEventListener('click', () => {
-        const lastBotMessage = document.querySelector('.message.bot:last-child');
-        if (lastBotMessage) {
-            voiceAssistant.speakOdia(lastBotMessage.textContent);
-        } else {
-            // If no last message, use default
-            voiceAssistant.speakOdia("Hello! I'm your STEM learning assistant.");
-        }
-    });
-    
-    // Pause button event listener
-    const pauseBtn = document.getElementById('pauseSpeaking');
-    if (pauseBtn) {
-        pauseBtn.addEventListener('click', () => {
-            console.log('Pause button clicked');
-            voiceAssistant.togglePauseSpeaking();
-        });
-    }
-    
-    // Stop speaking button event listener
-    const stopSpeakingBtn = document.getElementById('stopSpeaking');
-    if (stopSpeakingBtn) {
-        stopSpeakingBtn.addEventListener('click', () => {
-            console.log('Stop speaking button clicked');
-            voiceAssistant.stopSpeaking();
-        });
-    }
-    
-    // Groq API configuration
-    const GROQ_API_KEY = 'PUT_YOUR_API_KEY_HERE';
-    const GROQ_API_URL = 'https://api.groq.com/openai/v1/chat/completions';
-    
-    // Chatbot message history
-    let chatHistory = [
-        {
-            role: "system",
-            content: `You are a helpful STEM Learning Assistant for students in Grade ${currentUser.grade}. 
-            Your role is to help students with their studies in Mathematics, Science, Technology, and English.
-            
-            IMPORTANT: Students may ask questions in Odia (Oria language). When you detect Odia words or questions:
-            1. First, respond in English with the translation/interpretation
-            2. Then provide the answer in simple English
-            3. If helpful, provide the Odia translation of key terms in parentheses
-            
-            Example:
-            User: "ଦଶମିକ କପାନ୍ନ କେମିତି କରିବି?"
-            You: "You're asking: 'How to do decimal calculations?' 
-            To calculate with decimals, line up the decimal points and add/subtract normally.
-            (ଦଶମିକ ସଂଖ୍ୟା ପାଇଁ, ଦଶମିକ ବିନ୍ଦୁଗୁଡିକୁ ଏକ ସରଳରେଖାରେ ରଖି ଯୋଡନ୍ତୁ କିମ୍ବା ବିୟୋଗ କରନ୍ତୁ।)"
-            
-            Guidelines:
-            1. Always be encouraging and supportive
-            2. Break down complex concepts into simple steps
-            3. Use examples that are relevant to school students
-            4. If you don't know something, suggest asking a teacher
-            5. Keep responses under 3-4 sentences for simple questions
-            6. For complex topics, provide step-by-step explanations
-            7. Acknowledge when students are speaking in Odia and respond appropriately`
-        },
-        {
-            role: "assistant",
-            content: "Hello! I'm your STEM learning assistant powered by AI. How can I help you with your studies today?"
-        },
-        {
-            role: "assistant",
-            content: "You can ask me questions about math, science, technology, or any STEM-related topic you're learning in Grade " + currentUser.grade + ". Feel free to ask in English or Odia!"
-        }
-    ];
-    
-    // Chatbot UI elements
-    const chatbotToggle = document.getElementById('chatbotToggle');
-    const chatbotWindow = document.getElementById('chatbotWindow');
-    const chatbotClose = document.getElementById('chatbotClose');
-    const chatbotMessages = document.getElementById('chatbotMessages');
-    const chatbotInput = document.getElementById('chatbotInput');
-    const chatbotSend = document.getElementById('chatbotSend');
-    const suggestedQuestions = document.getElementById('suggestedQuestions');
-    
-    // Chatbot UI event listeners
-    chatbotToggle.addEventListener('click', function() {
-        chatbotWindow.classList.toggle('active');
-        // Scroll to bottom when opening
-        setTimeout(() => {
-            chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
-        }, 100);
-    });
-    
-    chatbotClose.addEventListener('click', function() {
-        chatbotWindow.classList.remove('active');
-    });
-    
-    chatbotSend.addEventListener('click', sendMessage);
-    
-    chatbotInput.addEventListener('keypress', function(e) {
-        if (e.key === 'Enter') {
-            sendMessage();
-        }
-    });
-    
-    // Suggested questions
-    document.querySelectorAll('.suggested-question').forEach(button => {
-        button.addEventListener('click', function() {
-            const question = this.getAttribute('data-question');
-            chatbotInput.value = question;
-            sendMessage();
-        });
-    });
-    
-    // Keyboard shortcuts
-    document.addEventListener('keydown', function(e) {
-        // Only trigger if chatbot is open
-        if (!document.getElementById('chatbotWindow').classList.contains('active')) return;
-        
-        // Ctrl + Space to toggle pause/resume
-        if (e.ctrlKey && e.code === 'Space') {
-            e.preventDefault();
-            const pauseBtn = document.getElementById('pauseSpeaking');
-            if (pauseBtn && pauseBtn.style.display !== 'none') {
-                pauseBtn.click();
-            }
-        }
-        
-        // Ctrl + S to stop speaking
-        if (e.ctrlKey && e.code === 'KeyS') {
-            e.preventDefault();
-            const stopBtn = document.getElementById('stopSpeaking');
-            if (stopBtn && stopBtn.style.display !== 'none') {
-                stopBtn.click();
-            }
-        }
-        
-        // Ctrl + M to start recording
-        if (e.ctrlKey && e.code === 'KeyM') {
-            e.preventDefault();
-            const recordBtn = document.getElementById('startRecord');
-            if (recordBtn) {
-                recordBtn.click();
-            }
-        }
-        
-        // Alt + P to play last response
-        if (e.altKey && e.code === 'KeyP') {
-            e.preventDefault();
-            const playBtn = document.getElementById('playOdia');
-            if (playBtn) {
-                playBtn.click();
-            }
-        }
-        
-        // Esc key to close chatbot
-        if (e.code === 'Escape') {
-            chatbotWindow.classList.remove('active');
-        }
-    });
-    
-    // Send message function
-    async function sendMessage() {
-        const message = chatbotInput.value.trim();
-        if (message === '') return;
-        
-        console.log('Original message:', message);
-        
-        // Add user message to chat
-        addMessage(message, 'user');
-        
-        // Check if message contains Odia
-        const containsOdiaText = containsOdia(message);
-        let englishMessage = message;
-        
-        if (containsOdiaText) {
-            console.log('Detected Odia text');
-            // Translate Odia to English for the API
-            englishMessage = translateOdiaToEnglish(message);
-            console.log('Translated to:', englishMessage);
-            
-            // Add note about translation
-            addMessage(`(Detected Odia question, translating...)`, 'bot', true);
-        }
-        
-        // Add to chat history
-        chatHistory.push({ role: "user", content: englishMessage });
-        chatbotInput.value = '';
-        
-        // Show typing indicator
-        showTypingIndicator();
-        
-        try {
-            // Call Groq API
-            console.log('Calling Groq API with message:', englishMessage);
-            
-            const requestPayload = {
-                model: "llama-3.3-70b-versatile",
-                messages: chatHistory,
-                max_tokens: 600,
-                temperature: 0.7,
-                stream: false
-            };
-            
-            const response = await fetch(GROQ_API_URL, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${GROQ_API_KEY}`
+        // Load syllabus knowledge base
+        function loadSyllabusKnowledgeBase() {
+            syllabusKnowledgeBase = {
+                'mathematics': {
+                    topics: [
+                        'Knowing Numbers',
+                        'Further Discussion of Numbers',
+                        'Basic Concepts in Geometry',
+                        'Natural Numbers',
+                        'Fractions',
+                        'Decimal Numbers',
+                        'Business Mathematics',
+                        'Integers',
+                        'Geometric Shapes on a Flat Surface',
+                        'Introduction to Algebra',
+                        'Weighing',
+                        'Data Management and Structure',
+                        'Geometric Drawing'
+                    ],
+                    qa: {
+                        'what are natural numbers': 'Natural numbers are counting numbers starting from 1, 2, 3, 4, and so on. They are used for counting objects.',
+                        'what are fractions': 'Fractions represent parts of a whole. They have a numerator (top number) and denominator (bottom number). Example: 1/2 means one part out of two equal parts.',
+                        'what are decimal numbers': 'Decimal numbers are numbers with a decimal point. They represent numbers between whole numbers. Example: 1.5 is between 1 and 2.',
+                        'what is geometry': 'Geometry is the study of shapes, sizes, positions, and properties of space. Basic concepts include points, lines, and angles.',
+                        'how to add fractions': 'To add fractions with same denominator, add the numerators and keep the denominator same. For different denominators, find common denominator first.',
+                        'what are integers': 'Integers include all whole numbers and their negatives: ..., -3, -2, -1, 0, 1, 2, 3, ...'
+                    }
                 },
-                body: JSON.stringify(requestPayload)
+                'english': {
+                    topics: [
+                        'Part – I: Fun with English',
+                        'Kite',
+                        'A Greedy Fat Old Man – I',
+                        'A Greedy Fat Old Man – II',
+                        'A Greedy Fat Old Man – III',
+                        'Part – II',
+                        'Mice (Poem)',
+                        'I Like Bats',
+                        'The Foolish Son-in-law',
+                        'Bamboo Curry',
+                        'A Nail (Poem)',
+                        'My Story Is Said',
+                        'Test – 1',
+                        'The Deaf Friend',
+                        'The Three Questions',
+                        'The Cat and the Dog (Poems)',
+                        'The Crab and the Fox',
+                        'A Special School',
+                        'Mahagir – The Kind Elephant',
+                        'When I Grow Up (Poem)',
+                        'What Can I Be?',
+                        'Raghunath Murmu',
+                        'The Story of Language',
+                        'Test – 2',
+                        'Appendices'
+                    ],
+                    qa: {
+                        'what is a poem': 'A poem is a piece of writing that uses imaginative language, rhythm, and often rhyme to express emotions or ideas.',
+                        'what is a story': 'A story is a narrative about events and characters, usually with a beginning, middle, and end.',
+                        'how to write sentences': 'Start with a capital letter, end with proper punctuation, and make sure it expresses a complete thought.',
+                        'what is grammar': 'Grammar is the set of rules for using words and constructing sentences in a language.',
+                        'what are nouns': 'Nouns are words that name people, places, things, or ideas. Example: boy, school, book, happiness.',
+                        'what are verbs': 'Verbs are action words or state-of-being words. Example: run, think, is, have.'
+                    }
+                },
+                'computer': {
+                    topics: [
+                        'Basic Concepts of Computers',
+                        'What is a Computer?',
+                        'Computer Features',
+                        'History of Computers',
+                        'Arms of Computer Science',
+                        'Computer Literacy',
+                        'Uses of Computer in Departments',
+                        'Computer Applications',
+                        'Computer Hardware',
+                        'CPU (Central Processing Unit)',
+                        'Memory',
+                        'Input/Output Devices',
+                        'Other Features of Personal Computers',
+                        'Computer Software',
+                        'What is Software?',
+                        'Types of Software',
+                        'Method of Operation',
+                        'Basic Concepts of Windows',
+                        'What is Windows?',
+                        'Windows Components',
+                        'Basic Working of a Mouse',
+                        'Windows Accessories & Internet',
+                        'Opening Windows Accessories',
+                        'Notepad',
+                        'Paint',
+                        'Calculator',
+                        'Compact Disc',
+                        'Pen Drive',
+                        'Windows Media Player',
+                        'Internet Basics'
+                    ],
+                    qa: {
+                        'what is a computer': 'A computer is an electronic device that processes data according to instructions to produce information.',
+                        'what is cpu': 'CPU stands for Central Processing Unit. It is the brain of the computer that processes instructions.',
+                        'what is software': 'Software is a set of instructions that tells the computer what to do. Examples: Windows, Word, games.',
+                        'what is hardware': 'Hardware is the physical parts of a computer that you can touch. Examples: monitor, keyboard, mouse.',
+                        'what is internet': 'The Internet is a worldwide network of computers that allows sharing of information and communication.',
+                        'what is windows': 'Windows is an operating system developed by Microsoft that manages computer hardware and software.'
+                    }
+                },
+                'science': {
+                    topics: [
+                        'Food',
+                        'Source of Food',
+                        'Classification of Food',
+                        'Identification of Food Products',
+                        'Objects & Materials',
+                        'Items Used in Daily Life',
+                        'Object Type Discrimination',
+                        'Changes in Matter and Substance',
+                        'Living Things',
+                        'Living and Non-Living Things',
+                        'Location',
+                        'Structure and Function of Body Parts',
+                        'Moving Objects',
+                        'Measure of Length and Distance',
+                        'Speed',
+                        'How Objects Work',
+                        'Electricity',
+                        'Magnet',
+                        'Natural Phenomena',
+                        'Natural Phenomena',
+                        'Light',
+                        'Natural Resources',
+                        'Water',
+                        'Importance of Air',
+                        'Garbage'
+                    ],
+                    qa: {
+                        'what are living things': 'Living things grow, reproduce, respond to environment, need food, and breathe. Examples: plants, animals, humans.',
+                        'what is photosynthesis': 'Photosynthesis is the process by which plants make their own food using sunlight, water, and carbon dioxide.',
+                        'what is electricity': 'Electricity is the flow of electric charge. It powers our lights, fans, and electronic devices.',
+                        'what is a magnet': 'A magnet is an object that attracts certain metals like iron. It has north and south poles.',
+                        'what are natural resources': 'Natural resources are materials from nature that we use. Examples: water, air, minerals, forests.',
+                        'why is water important': 'Water is essential for all living things. It helps in digestion, transportation in body, and keeps us hydrated.'
+                    }
+                }
+            };
+        }
+
+        // Setup syllabus chatbot
+        function setupSyllabusChatbot() {
+            const syllabusChatbotToggle = document.getElementById('syllabusChatbotToggle');
+            const syllabusChatbotWindow = document.getElementById('syllabusChatbotWindow');
+            const syllabusChatbotClose = document.getElementById('syllabusChatbotClose');
+            const subjectSelector = document.getElementById('subjectSelector');
+            
+            // Load subject cards
+            const subjects = [
+                { id: 'mathematics', name: 'Mathematics', icon: 'fas fa-calculator', description: 'Numbers, Geometry, Algebra' },
+                { id: 'english', name: 'English', icon: 'fas fa-language', description: 'Reading, Writing, Grammar' },
+                { id: 'computer', name: 'Computer', icon: 'fas fa-laptop-code', description: 'Hardware, Software, Internet' },
+                { id: 'science', name: 'Science', icon: 'fas fa-flask', description: 'Nature, Living Things, Physics' }
+            ];
+            
+            subjects.forEach(subject => {
+                const card = document.createElement('div');
+                card.className = 'subject-card-selector';
+                card.dataset.subject = subject.id;
+                card.innerHTML = `
+                    <i class="${subject.icon}"></i>
+                    <h4>${subject.name}</h4>
+                    <p>${subject.description}</p>
+                `;
+                subjectSelector.appendChild(card);
+                
+                card.addEventListener('click', () => selectSubject(subject.id));
             });
             
-            console.log('API Response status:', response.status);
+            // Event listeners
+            syllabusChatbotToggle.addEventListener('click', () => {
+                syllabusChatbotWindow.classList.toggle('active');
+            });
             
-            if (!response.ok) {
-                const errorText = await response.text();
-                console.error('API Error response:', errorText);
-                throw new Error(`API request failed with status ${response.status}`);
-            }
+            syllabusChatbotClose.addEventListener('click', () => {
+                syllabusChatbotWindow.classList.remove('active');
+                resetSyllabusChatbot();
+            });
             
-            const data = await response.json();
+            document.getElementById('syllabusChatbotSend').addEventListener('click', sendSyllabusMessage);
             
-            // Check if we have a valid response
-            if (!data.choices || !data.choices[0] || !data.choices[0].message) {
-                console.error('Invalid API response structure:', data);
-                throw new Error('Invalid response structure from API');
-            }
+            document.getElementById('syllabusChatbotInput').addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    sendSyllabusMessage();
+                }
+            });
             
-            const aiResponse = data.choices[0].message.content;
-            console.log('AI Response received successfully');
+            // Close when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!e.target.closest('.syllabus-chatbot-container') && 
+                    !e.target.closest('.syllabus-chatbot-window')) {
+                    syllabusChatbotWindow.classList.remove('active');
+                    resetSyllabusChatbot();
+                }
+            });
+        }
+        
+        // Select subject for syllabus chatbot
+        function selectSubject(subjectId) {
+            selectedSubject = subjectId;
             
-            // Remove typing indicator
-            removeTypingIndicator();
+            // Update UI
+            document.querySelectorAll('.subject-card-selector').forEach(card => {
+                card.classList.remove('selected');
+                if (card.dataset.subject === subjectId) {
+                    card.classList.add('selected');
+                }
+            });
             
-            // Add AI response to chat
-            addMessage(aiResponse, 'bot');
-            chatHistory.push({ role: "assistant", content: aiResponse });
+            // Show chat interface
+            document.getElementById('subjectSelector').style.display = 'none';
+            document.getElementById('syllabusChatbotMessages').style.display = 'flex';
+            document.getElementById('syllabusChatbotInputContainer').style.display = 'flex';
+            document.getElementById('syllabusSuggestedQuestions').style.display = 'flex';
             
-            // Auto-play Odia TTS for responses
-            setTimeout(() => {
-                voiceAssistant.speakOdia(aiResponse);
-            }, 500);
+            // Add welcome message
+            const messagesContainer = document.getElementById('syllabusChatbotMessages');
+            messagesContainer.innerHTML = '';
+            
+            const welcomeMessage = document.createElement('div');
+            welcomeMessage.className = 'message bot';
+            welcomeMessage.textContent = `Welcome to ${getSubjectName(subjectId)} help! I can answer questions about:`;
+            messagesContainer.appendChild(welcomeMessage);
+            
+            // List topics
+            const topics = syllabusKnowledgeBase[subjectId].topics;
+            const topicList = document.createElement('div');
+            topicList.className = 'message bot';
+            topicList.style.background = '#e6f7ff';
+            topicList.style.fontSize = '0.85rem';
+            
+            let topicText = '';
+            topics.forEach((topic, index) => {
+                topicText += `${index + 1}. ${topic}\n`;
+            });
+            topicList.textContent = topicText;
+            messagesContainer.appendChild(topicList);
+            
+            // Add help message
+            const helpMessage = document.createElement('div');
+            helpMessage.className = 'message bot';
+            helpMessage.textContent = 'Ask me anything about these topics. Try questions like: "What are fractions?" or "Explain photosynthesis"';
+            messagesContainer.appendChild(helpMessage);
+            
+            // Update suggested questions
+            updateSuggestedQuestions(subjectId);
             
             // Scroll to bottom
-            chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }
+        
+        // Get subject name from ID
+        function getSubjectName(subjectId) {
+            const names = {
+                'mathematics': 'Mathematics',
+                'english': 'English',
+                'computer': 'Computer',
+                'science': 'Science'
+            };
+            return names[subjectId] || 'Subject';
+        }
+        
+        // Update suggested questions based on subject
+        function updateSuggestedQuestions(subjectId) {
+            const container = document.getElementById('syllabusSuggestedQuestions');
+            container.innerHTML = '';
             
-        } catch (error) {
-            console.error('Error calling Groq API:', error);
-            removeTypingIndicator();
+            const questions = {
+                'mathematics': [
+                    'What are natural numbers?',
+                    'How to add fractions?',
+                    'What are decimal numbers?',
+                    'What is geometry?'
+                ],
+                'english': [
+                    'What is a poem?',
+                    'How to write sentences?',
+                    'What are nouns?',
+                    'What is grammar?'
+                ],
+                'computer': [
+                    'What is a computer?',
+                    'What is CPU?',
+                    'What is software?',
+                    'What is internet?'
+                ],
+                'science': [
+                    'What are living things?',
+                    'What is photosynthesis?',
+                    'What is electricity?',
+                    'Why is water important?'
+                ]
+            };
             
-            // Fallback response
-            let fallbackResponse = "";
-            if (containsOdiaText) {
-                fallbackResponse = "ମାଫ କରିବେ, ମୁଁ ଏହି ପ୍ରଶ୍ନର ଉତ୍ତର ଦେଇପାରିଲି ନାହିଁ। ଦୟାକରି ପୁନର୍ବାର ଚେଷ୍ଟା କରନ୍ତୁ।";
-            } else {
-                fallbackResponse = "I'm sorry, I couldn't get an answer for that question. Please try again.";
+            questions[subjectId].forEach(question => {
+                const button = document.createElement('button');
+                button.className = 'syllabus-suggested-question';
+                button.textContent = question;
+                button.addEventListener('click', () => {
+                    document.getElementById('syllabusChatbotInput').value = question;
+                    sendSyllabusMessage();
+                });
+                container.appendChild(button);
+            });
+        }
+        
+        // Send message to syllabus chatbot
+        function sendSyllabusMessage() {
+            const input = document.getElementById('syllabusChatbotInput');
+            const message = input.value.trim();
+            
+            if (!message) return;
+            
+            if (!selectedSubject) {
+                addSyllabusMessage('Please select a subject first.', 'bot');
+                return;
             }
             
-            addMessage(fallbackResponse, 'bot');
-            chatHistory.push({ role: "assistant", content: fallbackResponse });
+            // Add user message
+            addSyllabusMessage(message, 'user');
+            input.value = '';
             
-            chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+            // Process and get response
+            const response = getSyllabusResponse(message.toLowerCase());
+            setTimeout(() => {
+                addSyllabusMessage(response, 'bot');
+            }, 500);
         }
-    }
-    
-    function addMessage(text, sender, isNote = false) {
-        const messageDiv = document.createElement('div');
-        messageDiv.className = `message ${sender}`;
-        if (isNote) {
-            messageDiv.style.fontStyle = 'italic';
-            messageDiv.style.fontSize = '0.8em';
-            messageDiv.style.opacity = '0.7';
+        
+        // Get response from syllabus knowledge base
+        function getSyllabusResponse(question) {
+            if (!selectedSubject || !syllabusKnowledgeBase[selectedSubject]) {
+                return "Please select a subject first.";
+            }
+            
+            const qa = syllabusKnowledgeBase[selectedSubject].qa;
+            
+            // Check for exact match
+            for (const [key, answer] of Object.entries(qa)) {
+                if (question.includes(key)) {
+                    return answer;
+                }
+            }
+            
+            // Check for topic match
+            const topics = syllabusKnowledgeBase[selectedSubject].topics;
+            for (const topic of topics) {
+                if (question.includes(topic.toLowerCase())) {
+                    return `"${topic}" is part of your ${getSubjectName(selectedSubject)} syllabus. It's an important topic you should study from your textbook.`;
+                }
+            }
+            
+            // Generic responses based on subject
+            const genericResponses = {
+                'mathematics': "That's a good math question! Check your textbook for detailed explanations. Remember to practice regularly.",
+                'english': "For English language questions, try reading the related stories or poems in your textbook. Practice writing sentences.",
+                'computer': "For computer questions, you can find more details in your computer textbook. Try practical exercises on a computer.",
+                'science': "Science questions are best answered by experiments and observations. Check your science textbook for detailed explanations."
+            };
+            
+            return genericResponses[selectedSubject] || "I can help with questions about your syllabus. Try asking about specific topics mentioned in your textbook.";
         }
-        messageDiv.textContent = text;
-        chatbotMessages.appendChild(messageDiv);
-        chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
-    }
-    
-    function showTypingIndicator() {
-        const typingDiv = document.createElement('div');
-        typingDiv.className = 'typing-indicator';
-        typingDiv.id = 'typingIndicator';
-        typingDiv.innerHTML = `
-            STEM Assistant is typing
-            <div class="typing-dot"></div>
-            <div class="typing-dot"></div>
-            <div class="typing-dot"></div>
-        `;
-        chatbotMessages.appendChild(typingDiv);
-        chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
-    }
-    
-    function removeTypingIndicator() {
-        const typingIndicator = document.getElementById('typingIndicator');
-        if (typingIndicator) {
-            typingIndicator.remove();
+        
+        // Add message to syllabus chat
+        function addSyllabusMessage(text, sender) {
+            const messagesContainer = document.getElementById('syllabusChatbotMessages');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${sender}`;
+            messageDiv.textContent = text;
+            messagesContainer.appendChild(messageDiv);
+            
+            // Scroll to bottom
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
         }
-    }
-}
+        
+        // Reset syllabus chatbot
+        function resetSyllabusChatbot() {
+            selectedSubject = null;
+            document.getElementById('subjectSelector').style.display = 'grid';
+            document.getElementById('syllabusChatbotMessages').style.display = 'none';
+            document.getElementById('syllabusChatbotInputContainer').style.display = 'none';
+            document.getElementById('syllabusSuggestedQuestions').style.display = 'none';
+            document.getElementById('syllabusChatbotMessages').innerHTML = '';
+            document.getElementById('syllabusChatbotInput').value = '';
+            
+            document.querySelectorAll('.subject-card-selector').forEach(card => {
+                card.classList.remove('selected');
+            });
+        }
+
+        // Rest of your existing chatbot code (OdiaVoiceAssistant, etc.)
+        // ... (keep all your existing chatbot code from line 1369 onwards)
+        // The OdiaVoiceAssistant class and setupChatbotWithVoice function remain unchanged
+        // Just add them here without modification
+
+        // M// Updated OdiaVoiceAssistant class with better language detection
+        class OdiaVoiceAssistant {
+            constructor() {
+                this.recognition = null;
+                this.isRecording = false;
+                this.speechSynthesis = window.speechSynthesis;
+                this.speechUtterance = null;
+                this.isSpeaking = false;
+                this.isPaused = false;
+                this.pausedTime = 0;
+                this.pauseStartTime = 0;
+                this.init();
+            }
+            
+            init() {
+                // Check browser support
+                if ('webkitSpeechRecognition' in window) {
+                    this.initSpeechRecognition();
+                    return true;
+                } else if ('SpeechRecognition' in window) {
+                    this.recognition = new SpeechRecognition();
+                    this.initSpeechRecognition();
+                    return true;
+                }
+                return false;
+            }
+            
+            initSpeechRecognition() {
+                this.recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+                this.recognition.continuous = false;
+                this.recognition.interimResults = true;
+                this.recognition.lang = 'or-IN'; // Odia language code
+                
+                this.recognition.onstart = () => {
+                    console.log('Odia speech recognition started');
+                    this.isRecording = true;
+                    this.onListeningStart();
+                };
+                
+                this.recognition.onresult = (event) => {
+                    let interimTranscript = '';
+                    let finalTranscript = '';
+                    
+                    for (let i = event.resultIndex; i < event.results.length; i++) {
+                        const transcript = event.results[i][0].transcript;
+                        if (event.results[i].isFinal) {
+                            finalTranscript += transcript;
+                        } else {
+                            interimTranscript += transcript;
+                        }
+                    }
+                    
+                    // Update UI with interim results
+                    if (interimTranscript) {
+                        this.onInterimTranscript(interimTranscript);
+                    }
+                    
+                    // Handle final result
+                    if (finalTranscript) {
+                        this.onFinalTranscript(finalTranscript);
+                    }
+                };
+                
+                this.recognition.onerror = (event) => {
+                    console.error('Speech recognition error:', event.error);
+                    this.onError(event.error);
+                };
+                
+                this.recognition.onend = () => {
+                    console.log('Speech recognition ended');
+                    this.isRecording = false;
+                    this.onListeningEnd();
+                };
+            }
+            
+            startRecording() {
+                if (this.recognition && !this.isRecording) {
+                    try {
+                        this.recognition.start();
+                    } catch (error) {
+                        console.error('Error starting recording:', error);
+                        this.onError('start-failed');
+                    }
+                }
+            }
+            
+            stopRecording() {
+                if (this.recognition && this.isRecording) {
+                    this.recognition.stop();
+                }
+            }
+            
+            // Enhanced speakOdia function with pause support
+            speakOdia(text) {
+                if (this.speechSynthesis.speaking && !this.isPaused) {
+                    this.stopSpeaking();
+                }
+                
+                this.speechUtterance = new SpeechSynthesisUtterance(text);
+                
+                // Try to set Odia voice if available
+                const voices = this.speechSynthesis.getVoices();
+                const odiaVoice = voices.find(voice => 
+                    voice.lang.startsWith('or') || // Odia
+                    voice.lang.startsWith('hi') || // Hindi (closest)
+                    voice.lang.startsWith('bn')    // Bengali (similar)
+                );
+                
+                if (odiaVoice) {
+                    this.speechUtterance.voice = odiaVoice;
+                    this.speechUtterance.lang = odiaVoice.lang;
+                } else {
+                    // Fallback to default voice
+                    this.speechUtterance.lang = 'or-IN';
+                }
+                
+                this.speechUtterance.rate = 0.9; // Slightly slower for clarity
+                this.speechUtterance.pitch = 1;
+                this.speechUtterance.volume = 1;
+                
+                this.speechUtterance.onstart = () => {
+                    this.isSpeaking = true;
+                    this.isPaused = false;
+                    this.onSpeakingStart();
+                };
+                
+                this.speechUtterance.onend = () => {
+                    this.isSpeaking = false;
+                    this.isPaused = false;
+                    this.onSpeakingEnd();
+                };
+                
+                this.speechUtterance.onerror = (event) => {
+                    console.error('Speech synthesis error:', event);
+                    this.isSpeaking = false;
+                    this.isPaused = false;
+                    this.onSpeakingEnd();
+                };
+                
+                this.speechUtterance.onpause = () => {
+                    this.isPaused = true;
+                    this.pauseStartTime = Date.now();
+                    this.onSpeakingPaused();
+                };
+                
+                this.speechUtterance.onresume = () => {
+                    if (this.isPaused) {
+                        this.pausedTime += Date.now() - this.pauseStartTime;
+                        this.isPaused = false;
+                    }
+                    this.onSpeakingResumed();
+                };
+                
+                this.speechSynthesis.speak(this.speechUtterance);
+            }
+            
+            // Pause speech
+            pauseSpeaking() {
+                if (this.speechSynthesis.speaking && !this.isPaused) {
+                    this.speechSynthesis.pause();
+                    this.isPaused = true;
+                    this.pauseStartTime = Date.now();
+                    this.onSpeakingPaused();
+                }
+            }
+            
+            // Resume speech
+            resumeSpeaking() {
+                if (this.speechSynthesis.paused) {
+                    this.speechSynthesis.resume();
+                    this.isPaused = false;
+                    if (this.pauseStartTime) {
+                        this.pausedTime += Date.now() - this.pauseStartTime;
+                        this.pauseStartTime = 0;
+                    }
+                    this.onSpeakingResumed();
+                }
+            }
+            
+            // Toggle pause/resume
+            togglePauseSpeaking() {
+                if (this.isPaused) {
+                    this.resumeSpeaking();
+                } else {
+                    this.pauseSpeaking();
+                }
+            }
+            
+            // Stop speech completely
+            stopSpeaking() {
+                if (this.speechSynthesis.speaking || this.isPaused) {
+                    this.speechSynthesis.cancel();
+                    this.isSpeaking = false;
+                    this.isPaused = false;
+                    this.pausedTime = 0;
+                    this.pauseStartTime = 0;
+                    this.onSpeakingEnd();
+                }
+            }
+            
+            // Event handlers for voice recognition
+            onListeningStart() {
+                if (document.getElementById('startRecord')) {
+                    document.getElementById('startRecord').classList.add('recording');
+                }
+                if (document.getElementById('stopRecord')) {
+                    document.getElementById('stopRecord').disabled = false;
+                }
+                if (document.getElementById('statusText')) {
+                    document.getElementById('statusText').textContent = 'Listening... Speak in Odia';
+                }
+                if (document.getElementById('voiceStatus')) {
+                    document.getElementById('voiceStatus').style.display = 'flex';
+                }
+                this.updateVisualizer(true);
+            }
+            
+            onInterimTranscript(text) {
+                if (document.getElementById('chatbotInput')) {
+                    document.getElementById('chatbotInput').value = text;
+                }
+                if (document.getElementById('statusText')) {
+                    document.getElementById('statusText').textContent = 'Recognizing: ' + text.substring(0, 30) + '...';
+                }
+            }
+            
+            onFinalTranscript(text) {
+                console.log('Final Odia text:', text);
+                if (document.getElementById('chatbotInput')) {
+                    document.getElementById('chatbotInput').value = text;
+                }
+                if (document.getElementById('statusText')) {
+                    document.getElementById('statusText').textContent = 'Recognized: ' + text;
+                }
+                
+                // Auto-submit if text is long enough
+                if (text.trim().length > 3) {
+                    setTimeout(() => {
+                        if (document.getElementById('chatbotSend')) {
+                            document.getElementById('chatbotSend').click();
+                        }
+                    }, 1000);
+                }
+            }
+            
+            onError(error) {
+                let errorMsg = 'Voice recognition error: ';
+                switch(error) {
+                    case 'no-speech':
+                        errorMsg = 'No speech detected. Please speak louder.';
+                        break;
+                    case 'audio-capture':
+                        errorMsg = 'No microphone found. Please check your microphone.';
+                        break;
+                    case 'not-allowed':
+                        errorMsg = 'Microphone access denied. Please allow microphone access.';
+                        break;
+                    case 'start-failed':
+                        errorMsg = 'Unable to start recording. Please refresh the page.';
+                        break;
+                    default:
+                        errorMsg = 'Error: ' + error;
+                }
+                
+                if (document.getElementById('statusText')) {
+                    document.getElementById('statusText').textContent = errorMsg;
+                }
+                if (document.getElementById('startRecord')) {
+                    document.getElementById('startRecord').classList.remove('recording');
+                }
+                if (document.getElementById('stopRecord')) {
+                    document.getElementById('stopRecord').disabled = true;
+                }
+                
+                // Hide status after 3 seconds
+                setTimeout(() => {
+                    if (document.getElementById('voiceStatus') && !this.isRecording) {
+                        document.getElementById('voiceStatus').style.display = 'none';
+                    }
+                }, 3000);
+            }
+            
+            onListeningEnd() {
+                if (document.getElementById('startRecord')) {
+                    document.getElementById('startRecord').classList.remove('recording');
+                }
+                if (document.getElementById('stopRecord')) {
+                    document.getElementById('stopRecord').disabled = true;
+                }
+                if (document.getElementById('statusText')) {
+                    document.getElementById('statusText').textContent = 'Ready to record Odia';
+                }
+                this.updateVisualizer(false);
+                
+                // Hide status after 3 seconds
+                setTimeout(() => {
+                    if (document.getElementById('voiceStatus') && !this.isRecording) {
+                        document.getElementById('voiceStatus').style.display = 'none';
+                    }
+                }, 3000);
+            }
+            
+            // New event handlers for pause/resume
+            onSpeakingPaused() {
+                const pauseBtn = document.getElementById('pauseSpeaking');
+                if (pauseBtn) {
+                    pauseBtn.innerHTML = '<i class="fas fa-play"></i>';
+                    pauseBtn.title = 'Resume Speech';
+                    pauseBtn.classList.add('paused');
+                }
+                if (document.getElementById('statusText')) {
+                    document.getElementById('statusText').textContent = 'Speech paused';
+                }
+            }
+            
+            onSpeakingResumed() {
+                const pauseBtn = document.getElementById('pauseSpeaking');
+                if (pauseBtn) {
+                    pauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
+                    pauseBtn.title = 'Pause Speech';
+                    pauseBtn.classList.remove('paused');
+                }
+                if (document.getElementById('statusText')) {
+                    document.getElementById('statusText').textContent = 'Speaking...';
+                }
+            }
+            
+            onSpeakingStart() {
+                const playBtn = document.getElementById('playOdia');
+                const pauseBtn = document.getElementById('pauseSpeaking');
+                const stopBtn = document.getElementById('stopSpeaking');
+                const statusText = document.getElementById('statusText');
+                const voiceStatus = document.getElementById('voiceStatus');
+                
+                if (playBtn) playBtn.style.display = 'none';
+                if (pauseBtn) {
+                    pauseBtn.style.display = 'block';
+                    pauseBtn.disabled = false;
+                    pauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
+                    pauseBtn.title = 'Pause Speech';
+                    pauseBtn.classList.remove('paused');
+                }
+                if (stopBtn) {
+                    stopBtn.style.display = 'block';
+                    stopBtn.disabled = false;
+                }
+                if (statusText) {
+                    statusText.textContent = 'Speaking...';
+                }
+                if (voiceStatus) {
+                    voiceStatus.style.display = 'flex';
+                }
+            }
+            
+            onSpeakingEnd() {
+                const playBtn = document.getElementById('playOdia');
+                const pauseBtn = document.getElementById('pauseSpeaking');
+                const stopBtn = document.getElementById('stopSpeaking');
+                const statusText = document.getElementById('statusText');
+                
+                if (playBtn) playBtn.style.display = 'block';
+                if (pauseBtn) {
+                    pauseBtn.style.display = 'none';
+                    pauseBtn.disabled = true;
+                    pauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
+                    pauseBtn.classList.remove('paused');
+                    pauseBtn.title = 'Pause Speech';
+                }
+                if (stopBtn) {
+                    stopBtn.style.display = 'none';
+                    stopBtn.disabled = true;
+                }
+                if (statusText) {
+                    statusText.textContent = 'Voice playback finished';
+                }
+                
+                // Hide status after 2 seconds
+                setTimeout(() => {
+                    if (!this.isSpeaking && !this.isPaused && document.getElementById('voiceStatus')) {
+                        document.getElementById('voiceStatus').style.display = 'none';
+                    }
+                }, 2000);
+            }
+            
+            updateVisualizer(isActive) {
+                const visualizer = document.getElementById('visualizer');
+                if (!visualizer) return;
+                
+                visualizer.innerHTML = '';
+                
+                if (isActive) {
+                    const bar = document.createElement('div');
+                    bar.className = 'visualizer-bar';
+                    visualizer.appendChild(bar);
+                    this.animateVisualizer(bar);
+                }
+            }
+            
+            animateVisualizer(bar) {
+                const animate = () => {
+                    if (this.isRecording && bar && bar.parentNode) {
+                        const width = 20 + Math.random() * 80;
+                        bar.style.width = width + '%';
+                        requestAnimationFrame(() => this.animateVisualizer(bar));
+                    }
+                };
+                animate();
+            }
+        }
+
+        // Offline Odia-English Dictionary
+        const odiaSTEMDictionary = {
+            // Mathematics
+            'ଯୋଗ': 'addition',
+            'ବିୟୋଗ': 'subtraction',
+            'ଗୁଣନ': 'multiplication',
+            'ଭାଗ': 'division',
+            'ଭଗ୍ନାଂଶ': 'fraction',
+            'ଦଶମିକ': 'decimal',
+            'ବର୍ଗମୂଳ': 'square root',
+            'ସମୀକରଣ': 'equation',
+            'ତ୍ରିଭୁଜ': 'triangle',
+            'ବୃତ୍ତ': 'circle',
+            'ଦଶମିକ': 'decimal',
+            'କପାନ୍ନ': 'calculation',
+            'କାପନ୍ନ': 'calculation',
+            'କାପାନ୍ନ': 'calculation',
+            'ଗଣନା': 'calculation',
+            'ଆକଳନ': 'calculation',
+            
+            // Science
+            'ଜୀବନ': 'life',
+            'ଉଦ୍ଭିଦ': 'plant',
+            'ପ୍ରାଣୀ': 'animal',
+            'ଜଳ': 'water',
+            'ବାୟୁ': 'air',
+            'ଆଲୋକ': 'light',
+            'ତାପ': 'heat',
+            'ଶକ୍ତି': 'energy',
+            'ପରମାଣୁ': 'atom',
+            'ଅଣୁ': 'molecule',
+            'ଜୈବିକ': 'biological',
+            'ପ୍ରଣାଳୀ': 'system',
+            
+            // Common words
+            'ସହାୟତା': 'help',
+            'ବୁଝାଅ': 'explain',
+            'କଣ': 'what',
+            'କାହିଁକି': 'why',
+            'କେମିତି': 'how',
+            'କାହାକୁ': 'to whom',
+            'ପ୍ରଶ୍ନ': 'question',
+            'ଉତ୍ତର': 'answer',
+            'ବିଷୟ': 'subject',
+            'ପାଠ୍ୟ': 'lesson'
+        };
+
+        // Function to detect if text contains Odia characters
+        function containsOdia(text) {
+            const odiaRange = /[\u0B00-\u0B7F]/;
+            return odiaRange.test(text);
+        }
+
+        // Function to extract Odia words and translate them
+        function translateOdiaToEnglish(text) {
+            if (!containsOdia(text)) {
+                return text; // Return as-is if no Odia detected
+            }
+            
+            let translatedText = text;
+            
+            // First, translate known Odia words
+            Object.keys(odiaSTEMDictionary).forEach(odiaWord => {
+                const regex = new RegExp(odiaWord, 'g');
+                if (regex.test(text)) {
+                    translatedText = translatedText.replace(regex, odiaSTEMDictionary[odiaWord]);
+                }
+            });
+            
+            // If we detected Odia but didn't translate much, add context
+            if (containsOdia(translatedText) && translatedText === text) {
+                // Keep the Odia text but add English context
+                return "Odia question: " + text + " (Please explain in simple terms)";
+            }
+            
+            return translatedText;
+        }
+
+        // Integration with Chatbot
+        function setupChatbotWithVoice() {
+            // Initialize voice assistant
+            const voiceAssistant = new OdiaVoiceAssistant();
+            
+            // Check browser support
+            if (!voiceAssistant.recognition) {
+                console.log('Speech recognition not supported in this browser');
+                // Hide voice controls if not supported
+                document.querySelector('.voice-controls').style.display = 'none';
+            }
+            
+            // Button event listeners
+            document.getElementById('startRecord').addEventListener('click', () => {
+                voiceAssistant.startRecording();
+            });
+            
+            document.getElementById('stopRecord').addEventListener('click', () => {
+                voiceAssistant.stopRecording();
+            });
+            
+            document.getElementById('playOdia').addEventListener('click', () => {
+                const lastBotMessage = document.querySelector('.message.bot:last-child');
+                if (lastBotMessage) {
+                    voiceAssistant.speakOdia(lastBotMessage.textContent);
+                } else {
+                    // If no last message, use default
+                    voiceAssistant.speakOdia("Hello! I'm your STEM learning assistant.");
+                }
+            });
+            
+            // Pause button event listener
+            const pauseBtn = document.getElementById('pauseSpeaking');
+            if (pauseBtn) {
+                pauseBtn.addEventListener('click', () => {
+                    console.log('Pause button clicked');
+                    voiceAssistant.togglePauseSpeaking();
+                });
+            }
+            
+            // Stop speaking button event listener
+            const stopSpeakingBtn = document.getElementById('stopSpeaking');
+            if (stopSpeakingBtn) {
+                stopSpeakingBtn.addEventListener('click', () => {
+                    console.log('Stop speaking button clicked');
+                    voiceAssistant.stopSpeaking();
+                });
+            }
+            
+            // Groq API configuration
+            const GROQ_API_KEY = "";
+            const GROQ_API_URL = "";
+            
+            // Chatbot message history
+            let chatHistory = [
+                {
+                    role: "system",
+                    content: `You are a helpful STEM Learning Assistant for students in Grade ${currentUser.grade}. 
+                    Your role is to help students with their studies in Mathematics, Science, Technology, and English.
+                    
+                    IMPORTANT: Students may ask questions in Odia (Oria language). When you detect Odia words or questions:
+                    1. First, respond in English with the translation/interpretation
+                    2. Then provide the answer in simple English
+                    3. If helpful, provide the Odia translation of key terms in parentheses
+                    
+                    Example:
+                    User: "ଦଶମିକ କପାନ୍ନ କେମିତି କରିବି?"
+                    You: "You're asking: 'How to do decimal calculations?' 
+                    To calculate with decimals, line up the decimal points and add/subtract normally.
+                    (ଦଶମିକ ସଂଖ୍ୟା ପାଇଁ, ଦଶମିକ ବିନ୍ଦୁଗୁଡିକୁ ଏକ ସରଳରେଖାରେ ରଖି ଯୋଡନ୍ତୁ କିମ୍ବା ବିୟୋଗ କରନ୍ତୁ।)"
+                    
+                    Guidelines:
+                    1. Always be encouraging and supportive
+                    2. Break down complex concepts into simple steps
+                    3. Use examples that are relevant to school students
+                    4. If you don't know something, suggest asking a teacher
+                    5. Keep responses under 3-4 sentences for simple questions
+                    6. For complex topics, provide step-by-step explanations
+                    7. Acknowledge when students are speaking in Odia and respond appropriately`
+                },
+                {
+                    role: "assistant",
+                    content: "Hello! I'm your STEM learning assistant powered by AI. How can I help you with your studies today?"
+                },
+                {
+                    role: "assistant",
+                    content: "You can ask me questions about math, science, technology, or any STEM-related topic you're learning in Grade " + currentUser.grade + ". Feel free to ask in English or Odia!"
+                }
+            ];
+            
+            // Chatbot UI elements
+            const chatbotToggle = document.getElementById('chatbotToggle');
+            const chatbotWindow = document.getElementById('chatbotWindow');
+            const chatbotClose = document.getElementById('chatbotClose');
+            const chatbotMessages = document.getElementById('chatbotMessages');
+            const chatbotInput = document.getElementById('chatbotInput');
+            const chatbotSend = document.getElementById('chatbotSend');
+            const suggestedQuestions = document.getElementById('suggestedQuestions');
+            
+            // Chatbot UI event listeners
+            chatbotToggle.addEventListener('click', function() {
+                chatbotWindow.classList.toggle('active');
+                // Scroll to bottom when opening
+                setTimeout(() => {
+                    chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+                }, 100);
+            });
+            
+            chatbotClose.addEventListener('click', function() {
+                chatbotWindow.classList.remove('active');
+            });
+            
+            chatbotSend.addEventListener('click', sendMessage);
+            
+            chatbotInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    sendMessage();
+                }
+            });
+            
+            // Suggested questions
+            document.querySelectorAll('.suggested-question').forEach(button => {
+                button.addEventListener('click', function() {
+                    const question = this.getAttribute('data-question');
+                    chatbotInput.value = question;
+                    sendMessage();
+                });
+            });
+            
+            // Keyboard shortcuts
+            document.addEventListener('keydown', function(e) {
+                // Only trigger if chatbot is open
+                if (!document.getElementById('chatbotWindow').classList.contains('active')) return;
+                
+                // Ctrl + Space to toggle pause/resume
+                if (e.ctrlKey && e.code === 'Space') {
+                    e.preventDefault();
+                    const pauseBtn = document.getElementById('pauseSpeaking');
+                    if (pauseBtn && pauseBtn.style.display !== 'none') {
+                        pauseBtn.click();
+                    }
+                }
+                
+                // Ctrl + S to stop speaking
+                if (e.ctrlKey && e.code === 'KeyS') {
+                    e.preventDefault();
+                    const stopBtn = document.getElementById('stopSpeaking');
+                    if (stopBtn && stopBtn.style.display !== 'none') {
+                        stopBtn.click();
+                    }
+                }
+                
+                // Ctrl + M to start recording
+                if (e.ctrlKey && e.code === 'KeyM') {
+                    e.preventDefault();
+                    const recordBtn = document.getElementById('startRecord');
+                    if (recordBtn) {
+                        recordBtn.click();
+                    }
+                }
+                
+                // Alt + P to play last response
+                if (e.altKey && e.code === 'KeyP') {
+                    e.preventDefault();
+                    const playBtn = document.getElementById('playOdia');
+                    if (playBtn) {
+                        playBtn.click();
+                    }
+                }
+                
+                // Esc key to close chatbot
+                if (e.code === 'Escape') {
+                    chatbotWindow.classList.remove('active');
+                }
+            });
+            
+            // Send message function
+            async function sendMessage() {
+                const message = chatbotInput.value.trim();
+                if (message === '') return;
+                
+                console.log('Original message:', message);
+                
+                // Add user message to chat
+                addMessage(message, 'user');
+                
+                // Check if message contains Odia
+                const containsOdiaText = containsOdia(message);
+                let englishMessage = message;
+                
+                if (containsOdiaText) {
+                    console.log('Detected Odia text');
+                    // Translate Odia to English for the API
+                    englishMessage = translateOdiaToEnglish(message);
+                    console.log('Translated to:', englishMessage);
+                    
+                    // Add note about translation
+                    addMessage(`(Detected Odia question, translating...)`, 'bot', true);
+                }
+                
+                // Add to chat history
+                chatHistory.push({ role: "user", content: englishMessage });
+                chatbotInput.value = '';
+                
+                // Show typing indicator
+                showTypingIndicator();
+                
+                try {
+                    // Call Groq API
+                    console.log('Calling Groq API with message:', englishMessage);
+                    
+                    const requestPayload = {
+                        model: "llama-3.3-70b-versatile",
+                        messages: chatHistory,
+                        max_tokens: 600,
+                        temperature: 0.7,
+                        stream: false
+                    };
+                    
+                    const response = await fetch(GROQ_API_URL, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Authorization': `Bearer ${GROQ_API_KEY}`
+                        },
+                        body: JSON.stringify(requestPayload)
+                    });
+                    
+                    console.log('API Response status:', response.status);
+                    
+                    if (!response.ok) {
+                        const errorText = await response.text();
+                        console.error('API Error response:', errorText);
+                        throw new Error(`API request failed with status ${response.status}`);
+                    }
+                    
+                    const data = await response.json();
+                    
+                    // Check if we have a valid response
+                    if (!data.choices || !data.choices[0] || !data.choices[0].message) {
+                        console.error('Invalid API response structure:', data);
+                        throw new Error('Invalid response structure from API');
+                    }
+                    
+                    const aiResponse = data.choices[0].message.content;
+                    console.log('AI Response received successfully');
+                    
+                    // Remove typing indicator
+                    removeTypingIndicator();
+                    
+                    // Add AI response to chat
+                    addMessage(aiResponse, 'bot');
+                    chatHistory.push({ role: "assistant", content: aiResponse });
+                    
+                    // Auto-play Odia TTS for responses
+                    setTimeout(() => {
+                        voiceAssistant.speakOdia(aiResponse);
+                    }, 500);
+                    
+                    // Scroll to bottom
+                    chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+                    
+                } catch (error) {
+                    console.error('Error calling Groq API:', error);
+                    removeTypingIndicator();
+                    
+                    // Fallback response
+                    let fallbackResponse = "";
+                    if (containsOdiaText) {
+                        fallbackResponse = "ମାଫ କରିବେ, ମୁଁ ଏହି ପ୍ରଶ୍ନର ଉତ୍ତର ଦେଇପାରିଲି ନାହିଁ। ଦୟାକରି ପୁନର୍ବାର ଚେଷ୍ଟା କରନ୍ତୁ।";
+                    } else {
+                        fallbackResponse = "I'm sorry, I couldn't get an answer for that question. Please try again.";
+                    }
+                    
+                    addMessage(fallbackResponse, 'bot');
+                    chatHistory.push({ role: "assistant", content: fallbackResponse });
+                    
+                    chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+                }
+            }
+            
+            function addMessage(text, sender, isNote = false) {
+                const messageDiv = document.createElement('div');
+                messageDiv.className = `message ${sender}`;
+                if (isNote) {
+                    messageDiv.style.fontStyle = 'italic';
+                    messageDiv.style.fontSize = '0.8em';
+                    messageDiv.style.opacity = '0.7';
+                }
+                messageDiv.textContent = text;
+                chatbotMessages.appendChild(messageDiv);
+                chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+            }
+            
+            function showTypingIndicator() {
+                const typingDiv = document.createElement('div');
+                typingDiv.className = 'typing-indicator';
+                typingDiv.id = 'typingIndicator';
+                typingDiv.innerHTML = `
+                    STEM Assistant is typing
+                    <div class="typing-dot"></div>
+                    <div class="typing-dot"></div>
+                    <div class="typing-dot"></div>
+                `;
+                chatbotMessages.appendChild(typingDiv);
+                chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+            }
+            
+            function removeTypingIndicator() {
+                const typingIndicator = document.getElementById('typingIndicator');
+                if (typingIndicator) {
+                    typingIndicator.remove();
+                }
+            }
+        }
     </script>
 </body>
 </html>
